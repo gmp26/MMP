@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="false" version="1">
+  <includeClasses>
+    <classEntry path="org.maths.BasicStateImpl"/>
+    <classEntry path="org.maths.CartesianGrid"/>
+    <classEntry path="org.maths.Commands"/>
+    <classEntry path="org.maths.Complex"/>
+    <classEntry path="org.maths.Expression"/>
+    <classEntry path="org.maths.FPS"/>
+    <classEntry path="org.maths.IComplexView"/>
+    <classEntry path="org.maths.IState"/>
+    <classEntry path="org.maths.PolarGrid"/>
+    <classEntry path="org.maths.SetValue"/>
+    <classEntry path="org.maths.Util"/>
+    <classEntry path="org.maths.Vector2D"/>
+    <classEntry path="org.maths.IExpression"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
