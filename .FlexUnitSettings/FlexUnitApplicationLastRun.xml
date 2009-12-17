@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testrun name="" >
+<testsuite  name="Default Test Suite" project="MMP">
+<testsuite name="flexUnitTests:ExpressionTest" type="testsuiteclass"/>
+<testsuite name="org.maths.tests:ComplexTest" type="testcaseclass"/>
+<testsuite name="org.maths.tests:TrialTest" type="testcaseclass"/>
+<testsuite name="org.maths.tests:UtilTest" type="testcaseclass"/>
+<testsuite name="org.maths.tests:ExpressionTest" type="testcaseclass"/>
+</testsuite>
+</testrun>
