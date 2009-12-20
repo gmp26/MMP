@@ -41,12 +41,11 @@ package org.maths
 		 * @return result
 		 */
 		static public function toDP(t:Number, dps:Number):Number {
-			var s:Number = Math.abs(t);
-			var whole:Number = Math.floor(s);
-			var pten:Number = Math.pow(10,dps);
-			var frac:Number = (s-whole)*pten;
-			s = whole + Math.floor(frac+0.5)/pten;
-			return (t > 0) ? s : -s;
+			if(Math.abs(t) < Math.pow(10, -(dps+1))) {
+				// getaround a toFixed bug (e.g. 0.0006.toFixed(2) gives 0.01; 0.0004.toFixed(2) gives 0.00)
+				return Number((t+1).toFixed(dps)) - 1;
+			}
+			return Number(t.toFixed(dps));
 		}
 		
 		/**
@@ -55,20 +54,8 @@ package org.maths
 		 * @param sigfigs Number of significant figures
 		 * @return result
 		 */
-		static public function toSigFig(t:Number, sigfigs:Number):Number {
-			if(t==0) return t;
-			var sign:Number=t/Math.abs(t);
-			t = Math.abs(t);
-			for(var k:int=0; t >= 10; k++) {
-				t /= 10;
-			}
-			if(k==0) for(k=0; t < 1; k--) {
-				t *= 10;
-			}
-			var n:Number = (Math.pow(10,sigfigs-1));
-			t = Math.round(t*n)/n;
-			t *= (sign*Math.pow(10,k));
-			return t;
+		static public function toSigFig(t:Number, sigfigs:uint):Number {
+			return Number(t.toPrecision(sigfigs));
 		}
 	}
 }
