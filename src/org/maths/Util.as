@@ -40,12 +40,12 @@ package org.maths
 		 * @param dps Number of decimal places
 		 * @return result
 		 */
-		static public function toDP(t:Number, dps:Number):Number {
+		static public function toDP(t:Number, dps:Number):String {
 			if(Math.abs(t) < Math.pow(10, -(dps+1))) {
 				// getaround a toFixed bug (e.g. 0.0006.toFixed(2) gives 0.01; 0.0004.toFixed(2) gives 0.00)
-				return Number((t+1).toFixed(dps)) - 1;
+				return (t+1).toFixed(dps).replace(/1/, "0");
 			}
-			return Number(t.toFixed(dps));
+			return t.toFixed(dps);
 		}
 		
 		/**
@@ -54,16 +54,12 @@ package org.maths
 		 * @param sigfigs Number of significant figures
 		 * @return result
 		 */
-		static public function toSigFig(t:Number, sigfigs:uint):Number {
+		static public function toSigFig(t:Number, sigfigs:uint):String {
 			//
 			// if t rounds to 1, there are problems with scientific notation
 			//
 			var s:String = t.toPrecision(sigfigs);
-			var bugs:Array;
-			if((bugs = s.match(/^(-)?e(.*)$/)) != null) {
-				s = bugs[1] + "1.0e" + bugs[2]; 
-			}
-			return Number(s);
+			return s.replace(/^(-)?e/, "$11e");
 		}
 	}
 }
