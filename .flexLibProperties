@@ -15,7 +15,6 @@
     <classEntry path="org.maths.Util"/>
     <classEntry path="org.maths.Vector2D"/>
     <classEntry path="org.maths.render.Latex2swf"/>
-    <classEntry path="flexUnitTests.ExpressionTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

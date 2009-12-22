@@ -55,7 +55,15 @@ package org.maths
 		 * @return result
 		 */
 		static public function toSigFig(t:Number, sigfigs:uint):Number {
-			return Number(t.toPrecision(sigfigs));
+			//
+			// if t rounds to 1, there are problems with scientific notation
+			//
+			var s:String = t.toPrecision(sigfigs);
+			var bugs:Array;
+			if((bugs = s.match(/^(-)?e(.*)$/)) != null) {
+				s = bugs[1] + "1.0e" + bugs[2]; 
+			}
+			return Number(s);
 		}
 	}
 }
