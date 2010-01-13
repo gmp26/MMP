@@ -16,6 +16,7 @@
     <classEntry path="org.maths.Vector2D"/>
     <classEntry path="org.maths.render.Latex2swf"/>
     <classEntry path="org.maths.IField"/>
+    <classEntry path="org.maths.Fraction"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
