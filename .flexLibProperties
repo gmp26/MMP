@@ -7,6 +7,7 @@
     <classEntry path="org.maths.Complex"/>
     <classEntry path="org.maths.Expression"/>
     <classEntry path="org.maths.FPS"/>
+    <classEntry path="org.maths.Fraction"/>
     <classEntry path="org.maths.IComplexView"/>
     <classEntry path="org.maths.IExpression"/>
     <classEntry path="org.maths.IState"/>
