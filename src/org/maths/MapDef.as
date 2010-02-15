@@ -1,8 +1,5 @@
 package org.maths {
-	import org.maths.BasicStateImpl;
-	import org.maths.Complex;
-	import org.maths.Expression;
-	import org.maths.IState;
+	
 	
 	/**
 	 * Stores a defined map.
@@ -21,6 +18,13 @@ package org.maths {
 			this.functionName = functionName;
 		}
 		
+		public function addDummyVar(s:String):void
+		{
+			var i:int = dummyVars.indexOf(s);
+			if(i < 0)
+				dummyVars.push(s);
+		}
+		
 		public function evaluate(arg0:Expression, arg1:Expression = null):Complex {
 			var oldState:IState = Expression.state;
 			var newState:BasicStateImpl = new BasicStateImpl();
@@ -34,7 +38,5 @@ package org.maths {
 			Expression.state = oldState;
 			return z;
 		}
-		
-		
 	}
 }
