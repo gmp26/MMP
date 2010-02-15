@@ -1,0 +1,13 @@
+Defining f:
+	MapDef f: dummyVar = x
+			  expr = x
+			  
+	MapDef g: dummyVar = x
+			  expr = f(x)
+
+Problem: evaluating h(7) = g(f(7)) given:
+g: x -> f(x)
+f: x -> x
+
+Evaluation sequence:
+varname="x"; value="7"

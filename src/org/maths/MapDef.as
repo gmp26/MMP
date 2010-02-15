@@ -25,14 +25,14 @@ package org.maths {
 				dummyVars.push(s);
 		}
 		
-		public function evaluate(arg0:Expression, arg1:Expression = null):Complex {
+		public function evaluate(arg0:Complex, arg1:Complex = null):Complex {
 			var oldState:IState = Expression.state;
 			var newState:BasicStateImpl = new BasicStateImpl();
 			if(dummyVars.length > 0) {
-				newState.define(dummyVars[0], arg0);
+				newState.define(dummyVars[0], new Expression(arg0));
 			}
 			if(dummyVars.length > 1) {
-				newState.define(dummyVars[1], arg1);
+				newState.define(dummyVars[1], new Expression(arg1));
 			}
 			var z:Complex = expression.evaluate(true);
 			Expression.state = oldState;
