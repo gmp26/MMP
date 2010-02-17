@@ -1,4 +1,5 @@
 package org.maths {
+	import org.maths.XMLUtilities;
 	
 	
 	/**
@@ -13,6 +14,7 @@ package org.maths {
 		public var dummyVars:Vector.<String> = new Vector.<String>;
 		public var functionName:String;
 		public var expression:Expression = new Expression(null);
+		public var expressionAsString:String;
 		
 		function MapDef(functionName:String) {
 			this.functionName = functionName;
@@ -37,6 +39,28 @@ package org.maths {
 			var z:Complex = expression.evaluate(true);
 			Expression.state = oldState;
 			return z;
+		}
+		
+		public function toXML():XML {
+			
+			var md:XML = <mapDef fname={functionName} expr={expressionAsString}/>
+			for(var i:int = 0; i < dummyVars.length; i++) {
+				var dv:XML = <dummyVar name={dummyVars[i]}/>;
+			}
+			md.appendChild(dv);
+			
+			return md;
+		}
+		
+		public function fromXML(md:XML):void {				
+			functionName = XMLUtilities.stringAttr(md.@fname, "f");
+			expressionAsString = XMLUtilities.stringAttr(md.@expr, "x");
+			expression = new Expression(expressionAsString);
+			var dvList:XMLList = md.dummyVar;
+			
+			for(var i:int = 0; i < dvList.length(); i++) {
+				addDummyVar(XMLUtilities.stringAttr(dvList[i].@name, "x"));
+			}
 		}
 	}
 }
