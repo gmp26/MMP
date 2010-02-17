@@ -29,6 +29,14 @@ package org.maths
 				return defaultValue;
 		}
 		
+		public static function numberAttr(attribute:XMLList, defaultValue:Number):Number {
+			if(attribute && attribute.length() > 0) {
+				return parseInt(attribute[0].toString());
+			}
+			else
+				return defaultValue;
+		}
+		
 		public static function uintAttr(attribute:XMLList, defaultValue:uint):uint {
 			if(attribute && attribute.length() > 0) {
 				return parseInt(attribute[0].toString());

@@ -43,17 +43,16 @@ package org.maths {
 		
 		public function toXML():XML {
 			
-			var md:XML = <mapDef fname={functionName} expr={expressionAsString}/>
+			var md:XML = <mapDef expr={expressionAsString}/>
 			for(var i:int = 0; i < dummyVars.length; i++) {
 				var dv:XML = <dummyVar name={dummyVars[i]}/>;
+				md.appendChild(dv);
 			}
-			md.appendChild(dv);
 			
 			return md;
 		}
 		
 		public function fromXML(md:XML):void {				
-			functionName = XMLUtilities.stringAttr(md.@fname, "f");
 			expressionAsString = XMLUtilities.stringAttr(md.@expr, "x");
 			expression = new Expression(expressionAsString);
 			var dvList:XMLList = md.dummyVar;
