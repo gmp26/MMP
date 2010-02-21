@@ -4,7 +4,7 @@ package org.maths
 	 * Utility functions for the MMP package
 	 */ 
 	public class Util
-	{
+	{		
 		private var _figures:int = 2;
 		private var _rounding:Function = toDP;
 		
@@ -61,5 +61,6 @@ package org.maths
 			var s:String = t.toPrecision(sigfigs);
 			return s.replace(/^(-)?e/, "$11e");
 		}
+		
 	}
 }
