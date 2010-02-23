@@ -1,6 +1,6 @@
 This is an AS3 mathematics library that supports expression parsing and evaluation. It gets hacked about whenever we need it for a new application, but at core it supports Complex and Real valued expressions. We'd like to extend it to support Fractions and Sets - indeed there's a fair amount of Set membership code in there. The parser accepts what I call 'email maths'. So you can say things like:
 
-var z:Complex = new Expression('sin(pi/3)^2+cos(pi/3)^(2)').evaluate();
+var z:Complex = new Expression('(sin(pi/3))^2+(cos(pi/3))^2').evaluate();
 
 and hope that z now takes the value Complex(1).
 
